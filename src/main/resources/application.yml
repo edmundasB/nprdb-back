@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/nprdb
+    username: nprdb
+    password: nprdb
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+server:
+  port : 8081
+
+data:
+  predifined:
+    financial:
+      typ-scrtstn: 7
+    counterparty-reference:
+      rprtng-agn-cd: 304570552
+
+security:
+  whitelist-ips:
+    - 78.61.234.239
+    - 31.44.96.12
+    - 84.15.148.130
+    - 88.119.26.156
+    - 35.228.68.66
