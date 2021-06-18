@@ -13,8 +13,11 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/v1")
 public class JointLiabilitiesController {
-    @Autowired
-    private JointLiabilitiesRepository repository;
+    private final JointLiabilitiesRepository repository;
+
+    public JointLiabilitiesController(JointLiabilitiesRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping("/joint-liabilities")
     public ResponseEntity<JointLiabilities> createCounterpartyReference(@RequestBody JointLiabilities data){

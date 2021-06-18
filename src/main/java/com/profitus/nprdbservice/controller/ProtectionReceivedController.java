@@ -14,8 +14,11 @@ import java.util.List;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/v1")
 public class ProtectionReceivedController {
-    @Autowired
-    private ProtectionReceivedRepository repository;
+    private final ProtectionReceivedRepository repository;
+
+    public ProtectionReceivedController(ProtectionReceivedRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping("/protection-received")
     public ResponseEntity<List<ProtectionReceived>> createCounterpartyReference(@RequestBody List<ProtectionReceived> data){

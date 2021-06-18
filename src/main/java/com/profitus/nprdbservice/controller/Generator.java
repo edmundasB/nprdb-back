@@ -20,14 +20,17 @@ import java.nio.file.Paths;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/v1")
 public class Generator {
-    @Autowired
-    private CounterPartyRefereceGenerator counterPartyRefereceGenerator;
-    @Autowired
-    private AccountingGenerator accountingGenerator;
-    @Autowired
-    private InstrumentGenerator instrumentGenerator;
-    @Autowired
-    private ProtectionGenerator protectionGenerator;
+    private final CounterPartyRefereceGenerator counterPartyRefereceGenerator;
+    private final AccountingGenerator accountingGenerator;
+    private final InstrumentGenerator instrumentGenerator;
+    private final ProtectionGenerator protectionGenerator;
+
+    public Generator(CounterPartyRefereceGenerator counterPartyRefereceGenerator, AccountingGenerator accountingGenerator, InstrumentGenerator instrumentGenerator, ProtectionGenerator protectionGenerator) {
+        this.counterPartyRefereceGenerator = counterPartyRefereceGenerator;
+        this.accountingGenerator = accountingGenerator;
+        this.instrumentGenerator = instrumentGenerator;
+        this.protectionGenerator = protectionGenerator;
+    }
 
     @RequestMapping(path = "/download/counterparty-reference/{reportId}", method = RequestMethod.GET)
     public ResponseEntity<ByteArrayResource> downloadcounterpartyReference(@PathVariable String reportId) throws IOException {

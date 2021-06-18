@@ -13,8 +13,11 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/v1")
 public class InstrumentProtectionController {
-    @Autowired
-    private InstrumentProtectionRepository repository;
+    private final InstrumentProtectionRepository repository;
+
+    public InstrumentProtectionController(InstrumentProtectionRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping("/instrument-protection")
     public ResponseEntity<InstrumentProtection> createCounterpartyReference(@RequestBody InstrumentProtection data){

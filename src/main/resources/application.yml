@@ -1,12 +1,11 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/nprdb
-    username: nprdb
-    password: nprdb
+    url: jdbc:postgresql://ec2-176-34-105-15.eu-west-1.compute.amazonaws.com:5432/d6baj6hfk8adnq
+    username: wxtfsxwfrztacf
+    password: 687959a42db6ef4dd2cd5f8774f771280b17096e82b8a2e256df6183df8fd96b
+    driver-class-name: org.postgresql.Driver
   jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
 server:

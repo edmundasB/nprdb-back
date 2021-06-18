@@ -14,8 +14,11 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class InstrumentController {
 
-    @Autowired
-    private InstrumentRepository repository;
+    private final InstrumentRepository repository;
+
+    public InstrumentController(InstrumentRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping("/instrument")
     public ResponseEntity<Instrument> createCounterpartyReference(@RequestBody Instrument data){

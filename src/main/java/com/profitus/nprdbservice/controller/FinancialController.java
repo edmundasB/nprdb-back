@@ -13,8 +13,11 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/v1")
 public class FinancialController {
-    @Autowired
-    private FinancialRepository repository;
+    private final FinancialRepository repository;
+
+    public FinancialController(FinancialRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping("/financial")
     public ResponseEntity<Financial> createCounterpartyReference(@RequestBody Financial data){

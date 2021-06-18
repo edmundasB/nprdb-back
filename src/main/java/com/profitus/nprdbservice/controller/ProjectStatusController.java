@@ -13,8 +13,11 @@ import java.util.Optional;
 @RequestMapping("/v1")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProjectStatusController {
-    @Autowired
-    private MainNprdbReportRepository mainNprdbReportRepository;
+    private final MainNprdbReportRepository mainNprdbReportRepository;
+
+    public ProjectStatusController(MainNprdbReportRepository mainNprdbReportRepository) {
+        this.mainNprdbReportRepository = mainNprdbReportRepository;
+    }
 
     @PostMapping("/status")
     public ResponseEntity<Void> updateNprdbReport(@RequestBody ProjectStatus data) {

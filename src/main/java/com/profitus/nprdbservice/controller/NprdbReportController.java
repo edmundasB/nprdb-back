@@ -17,10 +17,13 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/v1")
 public class NprdbReportController {
-    @Autowired
-    private MainNprdbReportRepository repository;
-    @Autowired
-    private Initializer initializer;
+    private final MainNprdbReportRepository repository;
+    private final Initializer initializer;
+
+    public NprdbReportController(MainNprdbReportRepository repository, Initializer initializer) {
+        this.repository = repository;
+        this.initializer = initializer;
+    }
 
     @GetMapping("/ping")
     public String getInternalIp(HttpServletRequest request) {

@@ -13,8 +13,11 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/v1")
 public class ProtectionReceivedProtectionProvidersController {
-    @Autowired
-    private ProtectionReceivedProtectionProvidersRepository repository;
+    private final ProtectionReceivedProtectionProvidersRepository repository;
+
+    public ProtectionReceivedProtectionProvidersController(ProtectionReceivedProtectionProvidersRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping("/protection-received-protection-providers")
     public ResponseEntity<ProtectionReceivedProtectionProviders> createCounterpartyReference(@RequestBody ProtectionReceivedProtectionProviders data){

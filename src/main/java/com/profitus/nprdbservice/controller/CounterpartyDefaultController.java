@@ -2,7 +2,6 @@ package com.profitus.nprdbservice.controller;
 
 import com.profitus.nprdbservice.model.CounterpartyDefault;
 import com.profitus.nprdbservice.repository.CounterpartyDefaultRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +12,11 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/v1")
 public class CounterpartyDefaultController {
-    @Autowired
-    private CounterpartyDefaultRepository repository;
+    private final CounterpartyDefaultRepository repository;
+
+    public CounterpartyDefaultController(CounterpartyDefaultRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping("/counterparty-default")
     public ResponseEntity<CounterpartyDefault> createCounterpartyReference(@RequestBody CounterpartyDefault data){
