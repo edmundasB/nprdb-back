@@ -1,14 +1,19 @@
+/*
 package com.profitus.nprdbservice.security;
 
 import com.profitus.nprdbservice.exceptions.EmptyValidIpAddresses;
 import com.profitus.nprdbservice.security.properties.AccessProperties;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+*/
+/*import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;*//*
+
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import java.util.stream.Collectors;
 
-@EnableWebSecurity
+*/
+/*@EnableWebSecurity*//*
+
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final AccessProperties accessProperties;
@@ -36,3 +41,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .collect(Collectors.joining("') or hasIpAddress('", "hasIpAddress('", "')"));
     }
 }
+*/
